@@ -288,6 +288,8 @@ to_librdkafka_config(plugin_library_paths, V) ->
     {<<"plugin.library.paths">>, erlkaf_utils:to_binary(V)};
 to_librdkafka_config(sticky_partitioning_linger_ms, V) ->
     {<<"sticky.partitioning.linger.ms">>, erlkaf_utils:to_binary(V)};
+to_librdkafka_config(enable_auto_commit, V) when is_boolean(V) ->
+    {<<"enable.auto.commit">>, erlkaf_utils:to_binary(V)};
 to_librdkafka_config(K, V) ->
     throw({error, {options, {K, V}}}).
 
